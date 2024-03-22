@@ -1,17 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class OfferController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    // public function index()
+    // {
+    //     //
+    // }
+
+    public function adminOffer(){
+        return view('Admin.Offers');
+    }
+
+    public function UserOffer(){
+        return view('User.Offers');
     }
 
     /**

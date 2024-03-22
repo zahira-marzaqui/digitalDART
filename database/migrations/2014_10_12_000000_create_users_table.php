@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('age');
-            $table->string('l\'adresse');  
-            $table->integer('numero_telephone');
+            $table->string('adresse');  
+            $table->integer('telephone')->unique();
             $table->string('CNI')->unique();  
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('email');
+            $table->boolean('type')->default(false); //user : 0 , Admin 1
             $table->string('password');
-            $table->enum('validation', ['validé', 'refusé']);
+            $table->timestamp('email_verified_at');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,4 +35,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+   
 };
