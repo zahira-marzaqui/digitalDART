@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('offer_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->integer('calssement');
+            $table->integer('classement');
             $table->timestamps();
         });
     }
