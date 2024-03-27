@@ -12,9 +12,9 @@
                 <!-- Card Body -->
                 <div class="card-body">
                     <h5 class="m-0 font-weight-bold" style="color: black; ">Description</h5>
-                    <p style="margin-top: 15px; margin-left: 10px;">{{$offer->description}}</p>     
+                    <p style="margin-top: 15px; margin-left: 10px;">{{$offer->description}}</p>
                     <hr class="text-center" style="margin-top: 25px; margin-bottom: 25px">
-                    <h5 class="m-0 font-weight-bold" style="color: black; margin-top: 60px; ">Information</h5>                
+                    <h5 class="m-0 font-weight-bold" style="color: black; margin-top: 60px; ">Information</h5>
                     <table class="table table-borderless" style="margin-top: 10px;">
                         <thead>
                           <tr>
@@ -43,9 +43,14 @@
                     </table>
                     <div class="text-right pr-7">
                       <!-- Button trigger modal -->
-                      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" style="background-color: #257e38; color:white">
-                        Participer
-                      </button>
+                      <form action="{{ route('user.offer.participer') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="offer_id" value="{{ $offer->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <button type="submit" class="btn" style="background-color: #257e38; color:white">
+                                Participer
+                            </button>
+                        </form>
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -67,12 +72,12 @@
                           </div>
                         </div>
                       </div>
-                        
+
                     </div>
                  </div>
               </div>
-        </div>       
-        
+        </div>
+
         <!-- Pie Chart -->
         <div class="col-xl-4 col-lg-5" style="background-color: transparent ;">
             <div class="card shadow mb-4" style="border: 1px solid transparent; border-radius: 5%;">
@@ -82,15 +87,14 @@
         </div>
     </div>
 @endsection
-                
-                            
-                          
-                        
-        
 
-                
-                    
-                
-        
-            
-          
+
+
+
+
+
+
+
+
+
+

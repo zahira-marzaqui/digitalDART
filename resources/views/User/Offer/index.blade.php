@@ -13,7 +13,7 @@
 @endif
 <div class="container-fluid">
 <div class="row">
-    @foreach($offer as $rs)
+    @foreach($offer->reverse() as $rs)
     <div class="col-xl-4 col-lg-5" >
         <div class="card shadow mb-4" style="max-height: 400px; overflow: auto;" >
 
