@@ -11,15 +11,18 @@ class Offer extends Model
 
     protected $fillable = [
         'somme',
-        'nbr_max_participant',
+        'nbr_de_participant',
         'status',
         'période',
-        'date_paiment'
+        'date_paiment',
+        'description',
+
     ];
     public function Montant_Mensuel()
     {
-        if ($this->nbr_de_mois > 0 ) {
-            return $this->somme / $this->nbr_de_mois;
+        if ($this->période > 0 ) {
+            $montant_mensuel = $this->somme / $this->période;
+            return number_format($montant_mensuel, 2);
         } else {
             return 0;
         }

@@ -27,9 +27,9 @@ class AuthController extends Controller
         if(auth()->attempt(array('telephone' => $validatedData['telephone'], 'password' => $validatedData['password'])))
         {
             if (auth()->user()->type == 'admin') {
-                return redirect()->route('admin.offer.index');
+                return redirect()->route('admin.dashboard');
             }else{
-                return redirect()->route('user.offer.index');
+                return redirect()->route('user.mydart.index');
             }
         }else{
             return redirect()->route('/')
@@ -57,14 +57,19 @@ class AuthController extends Controller
         Auth::login($user);
 
         if (auth()->user()->type == 'admin') {
-            return redirect()->route('admin.offer.index')->with('success', 'Inscription réussie. Bienvenue, administrateur.');
+            return redirect()->route('admin.dashboard')->with('success', 'Inscription réussie. Bienvenue, administrateur.');
         } else {
-            return redirect()->route('user.offer.index')->with('success', 'Inscription réussie. Bienvenue.');
+            return redirect()->route('user.mydart.index')->with('success', 'Inscription réussie. Bienvenue.');
         }
     
         // Redirigez l'utilisateur vers une autre page ou effectuez une autre action
         // return redirect()->route('dashboard');
     }
-
+    
+    public function logout(Request $request){
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        return redirect('/');
+    }
 
 }

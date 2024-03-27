@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Offer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -15,19 +17,25 @@ class OfferController extends Controller
     // }
 
     public function adminOffer(){
-        return view('Admin.Offers');
+        $offer = Offer::orderBy('created_at', 'DESC')->get();
+        return view('Admin.Offer.index' , compact('offer'));
     }
 
     public function UserOffer(){
-        return view('User.Offers');
+        $offer = Offer::orderBy('created_at', 'DESC')->get();
+        return view('User.Offer.index', compact('offer'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {   
+        if(Auth::user()->type === 'admin') {
+            return view('Admin.Offer.create');
+        } else {
+            return view('User.Offer.create'); // Vue pour les utilisateurs normaux
+        }
     }
 
     /**
@@ -35,7 +43,22 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Offer::create($request->all());
+ 
+        // return redirect()->route('admin.offer.index')->with('success', 'Offer added successfully');
+
+        if(Auth::user()->type == 'admin' || Auth::user()->type == 'user') {
+            Offer::create($request->all());
+    
+            // Redirection en fonction du rôle de l'utilisateur
+            if(Auth::user()->type == 'admin') {
+                return redirect()->route('admin.offer.index')->with('success', 'L\'offre est ajoutée avec succés.');
+            } else {
+                return redirect()->route('user.offer.index')->with('success', 'L\'offre est ajoutée avec succés.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'tu n\'as pas la permession pour faire cette action.');
+        }
     }
 
     /**
@@ -43,7 +66,9 @@ class OfferController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $offer = Offer::findOrFail($id);
+  
+        return view('User.Offer.detaills', compact('offer'));
     }
 
     /**
@@ -59,14 +84,25 @@ class OfferController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $offer = Offer::findOrFail($id);
+  
+        $offer->update($request->all());
+  
+        return redirect()->route('admin.offer.index')->with('success', 'Offer updated successfully');
     }
+
+   
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $offer = Offer::findOrFail($id);
+  
+        $offer->delete();
+  
+        return redirect()->route('admin.offer.destroy')->with('success', 'Cette offre a été supprimée avec succès');
     }
-}
+
+ }

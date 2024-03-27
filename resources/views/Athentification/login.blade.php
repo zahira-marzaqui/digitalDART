@@ -1,8 +1,8 @@
-@extends('layout.auth')
+@extends('layouts.auth')
 @section('authentificate')
 <body>
     <div class="login-container">
-        <img src="{{asset('img/cc.png')}}" alt="">
+        {{-- <img src="{{asset('img/cc.jpg')}}" alt=""> --}}
         <h2>Bienvenue !</h1>
             <br>
         <form action="{{route("user.login.store")}}" method=POST > 
