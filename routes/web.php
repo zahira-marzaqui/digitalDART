@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ParticiperController;
 use App\Http\Controllers\MyDartController;
 use Illuminate\Http\Request;
-
+use App\Models\Offer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,7 +46,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
         Route::get('Offers/create', [OfferController::class, 'create'])->name('user.offer.crate');
         Route::post('Offers/store', [OfferController::class, 'store'])->name('user.offer.store');
         Route::get('Offers/show/{id}', [OfferController::class, 'show'])->name('user.offer.detaills');
-        Route::post('offers/show', [OfferController::class, 'participer'])->name('user.offer.participer');
+        Route::post('offers/participation', [ParticiperController::class, 'participer'])->name('user.offer.participer');
 
 
         //My Dart
@@ -62,11 +64,31 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         Route::get('dashboard', function () {
             return view('Admin.dashboard.cards');
         })->name('admin.dashboard');
+        
+        //offre
         Route::get('Offers/index', [OfferController::class, 'AdminOffer'])->name('admin.offer.index');
         Route::get('Offers/create', [OfferController::class, 'create'])->name('admin.offer.create');
         Route::post('Offers/store', [OfferController::class, 'store'])->name('admin.offer.store');
-        // Route::get('edit/{id}',[OfferController::class, 'edit'])->name('admin.offer.edit');
-        // Route::put('edit/{id}', [OfferController::class, 'update'])->name('admin.offer.update');
         Route::delete('destroy/{id}', [OfferController::class, 'destroy'])->name('admin.offer.destroy');
+        
+
+
+        //membre
+        Route::get('membres/index',[UserController::class, 'index'])->name('admin.membres.index');
+        Route::get('membres/create',[UserController::class, 'create'])->name('admin.members.create');
+        Route::post('membres/store',[UserController::class, 'store'])->name('admin.members.store');
+
+        //paiement
+        Route::get('paiement/dashboard', function () {
+            $offer = Offer::get();
+            return view('Admin.paiement.dashboard', compact('offer'));
+        })->name('admin.paiement.dashboard');
+
+        Route::get('paiement/index', function () {
+            return view('Admin.paiement.index');
+        })->name('admin.paiement.index');
+
+
+        
     });
 });

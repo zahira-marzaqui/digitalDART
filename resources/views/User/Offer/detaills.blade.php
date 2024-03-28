@@ -43,14 +43,14 @@
                     </table>
                     <div class="text-right pr-7">
                       <!-- Button trigger modal -->
-                      <form action="{{ route('user.offer.participer') }}" method="POST">
+                      {{-- <form action="{{ route('user.offer.participer') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="offer_id" value="{{ $offer->id }}">
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <button type="submit" class="btn" style="background-color: #257e38; color:white">
-                                Participer
+                            <input type="hidden" name="offer_id" value="{{ $offer->id }}"> --}}
+                            {{-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> --}}
+                            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" style="background-color: #257e38; color:white">
+                              Participer
                             </button>
-                        </form>
+                        {{-- </form> --}}
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -67,12 +67,18 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                              <button type="button" class="btn" style="background-color: #257e38; color: white">Confirmer</button>
+                              <form action="{{ route('user.offer.participer') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="offer_id" value="{{ $offer->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <button type="submit" class="btn" style="background-color: #257e38; color: white">
+                                  Confirmer
+                                </button>
+                              </form>
                             </div>
                           </div>
                         </div>
                       </div>
-
                     </div>
                  </div>
               </div>

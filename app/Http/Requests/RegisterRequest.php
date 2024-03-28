@@ -30,6 +30,8 @@ class RegisterRequest extends FormRequest
             'CNI' => 'required',
             'adresse' => 'required',
             'password' => 'required|min:6|confirmed',
+            // 'validation' => 'required',
+            // 'droit' => 'required',
         ];
     }
     /**
@@ -51,6 +53,8 @@ class RegisterRequest extends FormRequest
             'CNI.required' => 'Votre CNI est obligatoire.',
             'adresse.required' => 'Votre adresse est obligatoire.',
             'password.required' => 'Votre password est obligatoire.',
+            // 'droit.required' => 'Vous devez accepter les conditions d\'utilisation.',
+            // 'validation.required' => 'Veuillez fournir une validation à l\'utilisateur après son ajout.',
             'password.min' => 'Votre mot de passe doit comporter au moins :min caractères.',
             'password.confirmed' => 'Les mots de passe ne correspondent pas.',
         ];

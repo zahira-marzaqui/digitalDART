@@ -4,9 +4,9 @@
   
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="mb-0">Liste des Offres</h1>
+        <h1 class="mb-0">Liste des Membres</h1>
         
-        <a href="{{ route('admin.offer.create') }}" class="btn btn-primary" style="background-color: #257e38">Ajouter une Offre</a>
+        <a href="{{ route('admin.members.create') }}" class="btn btn-primary" style="background-color: #257e38">Ajouter un membre</a>
     </div>
     <hr />
     @if(Session::has('success'))
@@ -17,31 +17,36 @@
     <table class="table table-hover">
         <thead class="" style="background-color: #eff5ef">
             <tr>
-                <th style="color: black">#</th>
-                <th style="color: black">somme</th>
-                <th style="color: black">montant mensuel</th>
-                <th style="color: black">période</th>
-                <th style="color: black">date de paiment</th>
-                <th style="color: black">nombre de participant</th>
-                <th style="color: black">status</th>
+                <th style="color: black">id</th>
+                <th style="color: black">Nom complet</th>
+                <th style="color: black">Age</th>
+                <th style="color: black">Numéro de téléphone</th>
+                <th style="color: black">Adresse Email</th>
+                <th style="color: black">CNI</th>
+                <th style="color: black">Adresse</th>
+                <th style="color: black">Validation</th>
                 <th style="color: black">Action</th>
+
             </tr>
         </thead>
         <tbody>
-            @if($offer->count() > 0)
-                @foreach($offer as $rs)
+            @if($user->count() > 0)
+                @foreach($user as $us)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $rs->somme }} DH</td>
-                        <td class="align-middle">{{ $rs->Montant_Mensuel()}} DH</td>
-                        <td class="align-middle">{{ $rs->période }} mois </td>
-                        <td class="align-middle">le {{ $rs->date_paiment }} chaque mois </td>
-                        <td class="align-middle text-center"> {{$rs->nbr_de_participant}} / {{ $rs->période}}</td>
-                        <td style="color : white">
-                            @if ($rs->status == 'terminée')
-                               <h1 class="badge bg-danger">{{ $rs->status}}</h1>
+                        <td class="align-middle">{{ $us->last_name}} {{$us->first_name}}</td>
+                        <td class="align-middle">{{ $us->age}} ans</td>
+                        <td class="align-middle">{{ $us->telephone}}</td>
+                        <td class="align-middle">le {{ $us->email}}</td>
+                        <td class="align-middle text-center"> {{$us->CNI}}</td>
+                        <td class="align-middle text-center"> {{$us->adresse}}</td>
+                        <td style="color : white" class="text-center">
+                            @if ($us->validation == true)
+                               <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
+                               width: 25px; height: auto ;">
                             @else 
-                              <h1 class="badge bg-success">{{ $rs->status}}</h1>
+                               <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
+                               width: 25px; height: auto ;">
                             @endif
                               
                         </td>
@@ -60,15 +65,12 @@
                                     </a>
                                 </form>
                             </div>
-                            
-                           
-                              
                         </td>
                     </tr>
                 @endforeach
             @else
                 <tr>
-                    <td class="text-center" colspan="5">Offer not found</td>
+                    <td class="text-center" colspan="5">Aucun utilisateur n'est trouvé</td>
                 </tr>
             @endif
         </tbody>
