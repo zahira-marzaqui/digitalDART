@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Participer;
 use App\Models\User;
 use App\Models\Offer;
+use App\Models\offer_user;
 use Illuminate\Http\Request;
 
 class ParticiperController extends Controller
@@ -40,7 +41,7 @@ class ParticiperController extends Controller
        $offer->save();
 
         // Redirection ou retourner une réponse si nécessaire
-        return redirect()->route('user.offer.index')->with('success', 'Votre participation dans l\'offre '.$offer->id.' est enregistrée avec succès.');
+        return redirect()->route('user.offer.index')->with('success', 'Votre participation est enregistrée avec succès.');
     }
 
 }

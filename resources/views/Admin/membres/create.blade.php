@@ -66,7 +66,40 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="gridCheck" name="droit">
             <label class="form-check-label" for="gridCheck" style="color: black">
-                En utilisant cette application, le membre reconnaît et accepte tous les droits et obligations qui lui sont assignés.
+              En utilisant cette application, le membre reconnaît et accepte tous les droits et obligations qui lui sont assignés.
+              <br>
+                <a href="#" data-toggle="modal" data-target="#exampleModalLong">
+                  Lire ici les droits et les conditions d'accès
+                </a>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #257e38"><strong>Les droits et les conditions de l'application</strong> </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laborum reprehenderit eum nisi? 
+                        Nemo, ea soluta. Magni atque rem maiores quas debitis dignissimos iste, ducimus itaque sed consequuntur expedita quia.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit tempore, excepturi iste et, velit eveniet mollitia voluptas deserunt placeat in ratione officiis. 
+                        Eveniet, neque consequuntur placeat eos sapiente dolores explicabo?
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laborum reprehenderit eum nisi? 
+                        Nemo, ea soluta. Magni atque rem maiores quas debitis dignissimos iste, ducimus itaque sed consequuntur expedita quia.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit tempore, excepturi iste et, velit eveniet mollitia voluptas deserunt placeat in ratione officiis. 
+                        Eveniet, neque consequuntur placeat eos sapiente dolores explicabo?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">retour</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Button trigger modal -->
             </label>
           </div>
         </div>

@@ -35,8 +35,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Les offres fermer</div>
+                            <a href="{{route('admin.paiement.dashboard')}}" class="text-decoration-none"> 
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Les offres fermer</div>
+                            </a>    
                             <div class="h5 mb-0 font-weight-bold text-gray-800">215</div>
                         </div>
                         <div class="col-auto">
@@ -53,8 +54,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Les offres ouvert
-                            </div>
+                           <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Les offres ouvert</div>
+                            
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50</div>
@@ -82,8 +83,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
+                           <a href="#" class="text-decoration-none"> 
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Les membres pas encore validés</div>
+                                membres pas encore validés
+                            </div>
+                           </a> 
                             <div class="h5 mb-0 font-weight-bold text-gray-800">70</div>
                         </div>
                         <div class="col-auto">
@@ -131,9 +135,7 @@
                     Offer 1
                 </div>
             </div>
-        </div>
-        
-        
+        </div> 
     </div>
 </div>   
 @endsection   

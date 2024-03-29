@@ -2,7 +2,7 @@
 @section('contents')
 
 <div class="d-flex align-items-center justify-content-between">
-    <h1 class="mb-0">Espace Paiement</h1>
+  <h1 class="mb-0">Espace Paiement</h1>
 </div>
 <br>
 
@@ -16,30 +16,37 @@
     {{-- <h1 class="h3 mb-0 text-gray-800">Mes Darts</h1> --}}
 </div>
 
+
 <div class="row">
-  <div class="col-xl-8 col-lg-7">
-    <div class="card shadow mb-4">
-      <div class="card-header">
-        <a href="#" style="color: #257e38" class="h5"><strong>Mois 1</strong></a>
+  
+  @foreach ($usersByPeriod as $month => $users) 
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        
+        <div class="card-header">
+        <a href="#" style="color: #257e38" class="h5"><strong>Mois {{$month}}</strong></a>
       </div>
+  
+      
       <div class="card-body">
         <table class="table table-hover">
-            <thead>
+          <thead>
+            <tr>
+              <th scope="col" style="color: black" class="px-7">id</th>
+              <th scope="col" style="color: black" class="px-7">Nom complet</th>
+              <th scope="col" style="color: black" class="px-7">Classement</th>
+              <th scope="col" style="color: black" class="px-7">a payé?</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach ($users as $user) 
               <tr>
-                <th scope="col" style="color: black" class="px-7">id</th>
-                <th scope="col" style="color: black" class="px-7">Nom complet</th>
-                <th scope="col" style="color: black" class="px-7">Classement</th>
-                <th scope="col" style="color: black" class="px-7">a payé?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="px-7">1</th>
+                <th scope="row" class="px-7">{{$user->id}}</th>
                 <td class="px-7">Zahira Marzaqui</td>
                 <td class="px-7">la 7éme</td>
                 <td style="color : white" class="px-7" >
                        <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
-                       width: 25px; height: auto ;">
+                       width: 20px; height: auto ;">
                 </td>
               </tr>
               <tr>
@@ -48,7 +55,7 @@
                 <td class="px-7">le 4éme</td>
                 <td style="color : white" class="px-7">
                        <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
-                       width: 25px; height: auto ;">
+                       width: 20px; height: auto ;">
                 </td>
               </tr>
               <tr>
@@ -57,10 +64,11 @@
                 <td class="px-7">le 1er</td>
                 <td style="color : white" class="px-7">
                        <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                       width: 25px; height: auto ;">
+                       width: 20px; height: auto ;">
                 </td>
               </tr>
               
+              @endforeach
             </tbody>
           </table>
           <div class="d-flex align-items-center justify-content-between">
@@ -83,11 +91,11 @@
               </li>
             </ul>
           </nav>
-
+  
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" style="color: white ; background-color: #257e38">
             Effectuer votre paiement
           </button>
-
+  
            <!-- Modal -->
            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -145,8 +153,15 @@
           </div>
            </div>
       </div>    
-    </div>
- </div>
+      {{-- echo "<br>"; --}}
+    </div>  
+  </div>
+      @endforeach
+
+
+
+
+
 
  <div class="col-xl-8 col-lg-7">
   <div class="card shadow mb-4">

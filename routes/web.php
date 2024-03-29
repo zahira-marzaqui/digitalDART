@@ -84,9 +84,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
             return view('Admin.paiement.dashboard', compact('offer'));
         })->name('admin.paiement.dashboard');
 
-        Route::get('paiement/index', function () {
-            return view('Admin.paiement.index');
-        })->name('admin.paiement.index');
+        Route::get('paiement/index/{id}',  [OfferController::class, 'test'] )->name('admin.paiement.index');
 
 
         

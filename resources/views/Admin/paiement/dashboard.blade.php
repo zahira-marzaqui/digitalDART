@@ -36,8 +36,8 @@
                         
                         
                         <td class="text-center">
-                            <a href="{{route('admin.paiement.index')}}" class="d-inline-block">
-                            <img src="{{asset('img/dolarIcon.png')}}" style="background-size: cover; width: 45px; height: auto">
+                            <a href="{{route('admin.paiement.index',$rs->id)}}" class="d-inline-block">
+                            <img src="{{asset('img/dolarIcon.png')}}" style="background-size: cover; width: 45px; height: auto; margin-left: -50px">
                             </a> 
                         </td>
                     </tr>

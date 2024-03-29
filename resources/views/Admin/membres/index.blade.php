@@ -11,7 +11,7 @@
     <hr />
     @if(Session::has('success'))
         <div class="alert alert-success" role="alert">
-            {{ Session::get('success') }}
+            {{ Session::get('success')}}
         </div>
     @endif
     <table class="table table-hover">
@@ -26,7 +26,6 @@
                 <th style="color: black">Adresse</th>
                 <th style="color: black">Validation</th>
                 <th style="color: black">Action</th>
-
             </tr>
         </thead>
         <tbody>
@@ -43,14 +42,13 @@
                         <td style="color : white" class="text-center">
                             @if ($us->validation == true)
                                <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
-                               width: 25px; height: auto ;">
+                               width: 22px; height: auto ;">
                             @else 
                                <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                               width: 25px; height: auto ;">
+                               width: 19px; height: auto ;">
                             @endif
-                              
                         </td>
-                        
+
                         <td class="text-center">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 
@@ -74,5 +72,5 @@
                 </tr>
             @endif
         </tbody>
-    </table>
+    </table>   
 @endsection

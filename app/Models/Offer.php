@@ -30,6 +30,6 @@ class Offer extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,"offer_user","id_offer","id_user")->withPivot('classement');
     }
 }

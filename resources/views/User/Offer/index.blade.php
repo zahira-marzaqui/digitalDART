@@ -13,14 +13,15 @@
 @endif
 <div class="container-fluid">
 <div class="row">
-    @foreach($offer->reverse() as $rs)
+    @foreach($offer as $rs)
     <div class="col-xl-4 col-lg-5" >
         <div class="card shadow mb-4" style="max-height: 400px; overflow: auto;" >
 
 
             <div class="card-body" >
-                @if ($rs->status == 'terminée')
-                 <span class="badge bg-danger" style="color: #f2f9f3"><strong>{{ $rs->status}}</strong></span>
+                @if ($rs->nbr_de_participant == $rs->période)
+
+                 <span class="badge bg-danger" style="color: #f2f9f3"><strong>{{ $rs->status = 'terminée'}}</strong></span>
                 @else
                <span class="badge bg-success" style="color: #f2f9f3"><strong>{{ $rs->status}}</strong> </span>
                 @endif

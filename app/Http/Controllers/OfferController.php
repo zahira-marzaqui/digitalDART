@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Participer;
 use App\Models\User;
 use App\Models\Offer;
+use Illuminate\Support\Facades\DB;
 
 class OfferController extends Controller
 {
@@ -51,7 +52,11 @@ class OfferController extends Controller
         // return redirect()->route('admin.offer.index')->with('success', 'Offer added successfully');
 
         if(Auth::user()->type == 'admin' || Auth::user()->type == 'user') {
-            Offer::create($request->all());
+            $offer = Offer::create($request->all());
+            if(Auth::user()->type == 'user'){
+                $offer->nbr_de_participant++ ;
+                $offer->save();
+            }
 
             // Redirection en fonction du rôle de l'utilisateur
             if(Auth::user()->type == 'admin') {
@@ -134,6 +139,36 @@ class OfferController extends Controller
         $offer->delete();
 
         return redirect()->route('admin.offer.destroy')->with('success', 'Cette offre a été supprimée avec succès');
+    }
+
+
+    public function test(string $id)
+    {
+        $offer = Offer::findOrFail($id);
+
+
+
+        $usersByPeriod = [];
+
+        for ($month = 1; $month <= $offer->période; $month++) {
+            $users = DB::table('users')
+                ->join('offer_user', 'users.id', '=', 'offer_user.id_user')
+                ->join('offers', 'offer_user.id_offer', '=', 'offers.id')
+                ->where('offers.id', $offer->id)
+                ->where('offers.période', $month)
+                ->select('users.*')
+                ->get();
+    
+            $usersByPeriod[$month] = $users;
+        }
+    
+        // Now $usersByPeriod contains users grouped by each month of the offer's duration
+        // You can loop through $usersByPeriod to display users for each month
+
+
+
+
+        return view('Admin.paiement.index',compact("usersByPeriod"));
     }
 
  }

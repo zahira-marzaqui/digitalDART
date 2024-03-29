@@ -35,7 +35,7 @@ class User extends Authenticatable
     ];
     public function offers()
     {
-        return $this->belongsToMany(Offer::class);
+        return $this->belongsToMany(Offer::class,"offer_user","id_user","id_offer")->withPivot('classement');
     }
 
     /**

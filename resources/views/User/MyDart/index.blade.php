@@ -10,7 +10,7 @@
     <h1 class="mb-0">Mes Darts</h1>
 </div>
 <br>
-
+    
   <div class="row">
       <!-- Earnings (Monthly) Card Example -->
       <div class="col-xl-3 col-md-6 mb-4">
@@ -107,6 +107,7 @@
     {{-- <h1 class="h3 mb-0 text-gray-800">Mes Darts</h1> --}}
 </div>
  
+@forelse ( Auth::user()->offers as $offer )
 <div class="card mb-4">
     <div class="card-header" >
         <a href="#" style="color: #257e38" class="h5"><strong>Dart 1</strong></a>
@@ -126,11 +127,11 @@
             </thead>
             <tbody>
               <tr>
-                <td>9000 DH</td>
-                <td>9 mois</td>
-                <td>5 mois</td>
+                <td>{{$offer->somme}} DH</td>
+                <td>{{$offer->période}} mois</td>
+                <td>7 mois</td>
                 <td>4 mois</td>
-                <td>Le 7éme</td>
+                <td>Le {{$offer->pivot->classement}} éme</td>
                 <td style="color : white">
                     {{-- @if ($rs->status == 'terminée') --}}
                        {{-- <h1 class="badge bg-success">félicitation, Dart accomplie</h1> --}}
@@ -149,43 +150,11 @@
           </table>
     </div>
 </div>
+@empty
+    
+@endforelse
 
-<div class="card mb-4">
-  <div class="card-header">
-    <a href="#" style="color: #257e38" class="h5"><strong>Dart 2</strong></a>  
-  </div>
-  <div class="card-body">
-      <table class="table table-borderless">
-          <thead>
-            <tr>
-              <th scope="col" style="color: black">La somme</th>
-              <th scope="col" style="color: black">la période</th>
-              <th scope="col" style="color: black">Les mois payés</th>
-              <th scope="col" style="color: black">Les mois restants</th>
-              <th scope="col" style="color: black">Mon classement</th>
-              <th scope="col" style="color: black">Le progrès</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9000 DH</td>
-              <td>9 mois</td>
-              <td>5 mois</td>
-              <td>4 mois</td>
-              <td>Le 7éme</td>
-              <td style="color : white">
-                  {{-- @if ($rs->status == 'terminée') --}}
-                     <h1 class="badge bg-success">félicitation, Dart accomplie</h1>
-                     {{-- <h1 class="badge bg-gradient-warning">pas encore terminée</h1> --}}
-                  {{-- @else 
-                    <h1 class="badge bg-success">{{ $rs->status}}</h1>
-                  @endif --}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-  </div>
-</div>
+
 
 
 
