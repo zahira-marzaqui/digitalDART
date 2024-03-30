@@ -67,7 +67,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                              <form action="{{ route('user.offer.participer') }}" method="POST">
+                              <form action="{{ route('user.offer.participer',$offer->id) }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="offer_id" value="{{ $offer->id }}">
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

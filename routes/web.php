@@ -46,7 +46,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
         Route::get('Offers/create', [OfferController::class, 'create'])->name('user.offer.crate');
         Route::post('Offers/store', [OfferController::class, 'store'])->name('user.offer.store');
         Route::get('Offers/show/{id}', [OfferController::class, 'show'])->name('user.offer.detaills');
-        Route::post('offers/participation', [ParticiperController::class, 'participer'])->name('user.offer.participer');
+        Route::post('offers/participation/{id}', [ParticiperController::class, 'participer'])->name('user.offer.participer');
 
 
         //My Dart

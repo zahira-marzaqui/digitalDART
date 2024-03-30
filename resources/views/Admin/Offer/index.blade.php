@@ -38,8 +38,9 @@
                         <td class="align-middle">le {{ $rs->date_paiment }} chaque mois </td>
                         <td class="align-middle text-center"> {{$rs->nbr_de_participant}} / {{ $rs->période}}</td>
                         <td style="color : white">
-                            @if ($rs->status == 'terminée')
-                               <h1 class="badge bg-danger">{{ $rs->status}}</h1>
+                            @if ($rs->nbr_de_participant == $rs->période)
+
+                               <h1 class="badge bg-danger">{{ $rs->status = 'terminé'}}</h1>
                             @else 
                               <h1 class="badge bg-success">{{ $rs->status}}</h1>
                             @endif

@@ -13,6 +13,7 @@ class MyDartController extends Controller
         return view('User.MyDart.index' , compact('offer'));
     }
     public function PaiementIndex(){
+        
         return view('User.MyDart.paiement');
     }
 }

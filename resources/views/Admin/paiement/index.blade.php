@@ -18,7 +18,7 @@
 
 
 <div class="row">
-  
+  {{-- @dd($usersByPeriod) --}}
   @foreach ($usersByPeriod as $month => $users) 
     <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
@@ -29,45 +29,29 @@
   
       
       <div class="card-body">
-        <table class="table table-hover">
+        <table class="table table-hover"> 
           <thead>
             <tr>
               <th scope="col" style="color: black" class="px-7">id</th>
               <th scope="col" style="color: black" class="px-7">Nom complet</th>
-              <th scope="col" style="color: black" class="px-7">Classement</th>
+              {{-- <th scope="col" style="color: black" class="px-7">Classement</th> --}}
               <th scope="col" style="color: black" class="px-7">a payé?</th>
             </tr>
-          </thead>
-          <tbody>
-              @foreach ($users as $user) 
+          </thead> 
+           <tbody>
+              @foreach ($users as $user)
+              {{-- @dd($users) --}}
               <tr>
+                 
                 <th scope="row" class="px-7">{{$user->id}}</th>
-                <td class="px-7">Zahira Marzaqui</td>
-                <td class="px-7">la 7éme</td>
+                <td class="px-7">{{$user->first_name}} {{$user->last_name}}</td>
+                {{-- <td class="px-7">le {{$user}}éme</td> --}}
                 <td style="color : white" class="px-7" >
                        <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
                        width: 20px; height: auto ;">
                 </td>
+                
               </tr>
-              <tr>
-                <th scope="row" class="px-7">1</th>
-                <td class="px-7">Anass Allabouch</td>
-                <td class="px-7">le 4éme</td>
-                <td style="color : white" class="px-7">
-                       <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
-                       width: 20px; height: auto ;">
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="px-7">1</th>
-                <td class="px-7">Jone Mohammed</td>
-                <td class="px-7">le 1er</td>
-                <td style="color : white" class="px-7">
-                       <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                       width: 20px; height: auto ;">
-                </td>
-              </tr>
-              
               @endforeach
             </tbody>
           </table>
@@ -151,12 +135,13 @@
               </div>
             </div>
           </div>
-           </div>
+          </div>
       </div>    
-      {{-- echo "<br>"; --}}
-    </div>  
+     
+    </div>
+  
   </div>
-      @endforeach
+   @endforeach 
 
 
 

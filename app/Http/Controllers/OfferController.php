@@ -145,9 +145,6 @@ class OfferController extends Controller
     public function test(string $id)
     {
         $offer = Offer::findOrFail($id);
-
-
-
         $usersByPeriod = [];
 
         for ($month = 1; $month <= $offer->période; $month++) {
@@ -164,10 +161,7 @@ class OfferController extends Controller
     
         // Now $usersByPeriod contains users grouped by each month of the offer's duration
         // You can loop through $usersByPeriod to display users for each month
-
-
-
-
+        
         return view('Admin.paiement.index',compact("usersByPeriod"));
     }
 
