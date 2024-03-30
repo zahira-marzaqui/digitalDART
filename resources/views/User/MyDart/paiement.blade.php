@@ -11,40 +11,40 @@
             <!-- Card Body -->
             <div class="card-body">
                 <h5 class="m-0 font-weight-bold" style="color: black; ">Description</h5>
-                <p style="margin-top: 15px; margin-left: 10px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate mollitia recusandae nulla ad fuga veritatis, velit similique dolorum maxime ipsa quos itaque odio excepturi at incidunt. Non reiciendis reprehenderit molestiae.</p>     
+                <p style="margin-top: 15px; margin-left: 10px;">Participez à notre offre de gestion d'épargne pour une expérience financière enrichissante ! Avec notre offre, vous aurez l'opportunité de gérer votre épargne de manière intelligente et efficace. </p>     
                 <hr class="text-center" style="margin-top: 25px; margin-bottom: 25px">
                 <h5 class="m-0 font-weight-bold" style="color: black; margin-top: 60px; ">Information</h5>                
                 <table class="table table-borderless" style="margin-top: 10px;">
                     <thead>
                       <tr>
                        <th scope="col">La somme :</th>
-                        <td>9000 DH</td>
+                        <td>4000 DH</td>
                        </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="col">le montant mensuel :</th>
-                        <td>1000 DH</td>
+                        <td>666.67 DH</td>
                       </tr>
                       <tr>
                         <th scope="col">La période :</th>
-                        <td>9 mois</td>
+                        <td>6 mois</td>
                       </tr>
                       <tr>
                         <th scope="col">Les mois restants :</th>
-                        <td colspan="2">4 mois</td>
+                        <td colspan="2">3 mois</td>
                       </tr>
                       <tr>
                         <th scope="col">Les mois payés :</th>
-                        <td colspan="2">5 mois</td>
+                        <td colspan="2">3 mois</td>
                       </tr>
                       <tr>
                         <th scope="col">Date de paiement :</th>
-                        <td colspan="2">le 03 chaque mois</td>
+                        <td colspan="2">le 06 chaque mois</td>
                       </tr>
                       <tr>
                         <th scope="col">Mon classement :</th>
-                        <td colspan="2">le 7éme</td>
+                        <td colspan="2">le 2éme</td>
                       </tr>
                     </tbody>
                 </table>
@@ -152,40 +152,19 @@
                       <tr>
                         <th scope="col">Mois 4 :</th>
                         <td colspan="2">
-                            <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
+                            <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
                             width: 25px; height: auto ;"> 
                         </td>
                       </tr>
                       <tr>
                         <th scope="col">Mois 5 :</th>
                         <td colspan="2">
-                            <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
+                            <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
                             width: 25px; height: auto ;"> 
                         </td>
                       </tr>
                       <tr>
                         <th scope="col">Mois 6 :</th>
-                        <td colspan="2">
-                            <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                            width: 25px; height: auto ;">
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="col">Mois 7 :</th>
-                        <td colspan="2">
-                            <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                            width: 25px; height: auto ;">
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="col">Mois 8 :</th>
-                        <td colspan="2">
-                            <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                            width: 25px; height: auto ;">
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="col">Mois 9 :</th>
                         <td colspan="2">
                             <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
                             width: 25px; height: auto ;">

@@ -83,14 +83,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laborum reprehenderit eum nisi? 
-                        Nemo, ea soluta. Magni atque rem maiores quas debitis dignissimos iste, ducimus itaque sed consequuntur expedita quia.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit tempore, excepturi iste et, velit eveniet mollitia voluptas deserunt placeat in ratione officiis. 
-                        Eveniet, neque consequuntur placeat eos sapiente dolores explicabo?
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laborum reprehenderit eum nisi? 
-                        Nemo, ea soluta. Magni atque rem maiores quas debitis dignissimos iste, ducimus itaque sed consequuntur expedita quia.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit tempore, excepturi iste et, velit eveniet mollitia voluptas deserunt placeat in ratione officiis. 
-                        Eveniet, neque consequuntur placeat eos sapiente dolores explicabo?
+                        En utilisant cette application, vous acceptez de vous conformer aux présentes conditions d'utilisation. Vous reconnaissez que l'accès à certaines fonctionnalités de l'application peut nécessiter la création d'un compte utilisateur et la fourniture de certaines informations personnelles. Vous acceptez de fournir des informations exactes, complètes et à jour lors de votre inscription, et de maintenir la confidentialité de vos identifiants de connexion. Vous acceptez également de ne pas utiliser l'application à des fins illégales ou non autorisées, et de vous abstenir de violer les droits d'autrui lors de votre utilisation de l'application. L'accès à l'application peut être restreint ou suspendu à tout moment, à la discrétion de l'administrateur de l'application, en cas de violation des conditions d'utilisation ou de toute autre activité jugée inappropriée. En utilisant cette application, vous consentez également à ce que vos données personnelles soient collectées, traitées et utilisées conformément à notre politique de confidentialité.
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">retour</button>

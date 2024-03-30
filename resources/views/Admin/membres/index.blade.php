@@ -39,13 +39,40 @@
                         <td class="align-middle">le {{ $us->email}}</td>
                         <td class="align-middle text-center"> {{$us->CNI}}</td>
                         <td class="align-middle text-center"> {{$us->adresse}}</td>
-                        <td style="color : white" class="text-center">
-                            @if ($us->validation == true)
+                        <td style="" class="text-center">
+                            @if ($us->validation == false)
+                               
+                                
+                                <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                                    <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
+                                     width: 19px; height: auto ;">
+                                </a>
+                                  
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel" style="color: #257e38"><strong>Validation des utilisateurs</strong> </h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p style="color: black">J'ai examiné attentivement le dossier de l'utilisateur et je le valide pour devenir membre dans notre application.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                          <button type="button" class="btn btn-success" style="background-color: #257e38">Valider</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <!-- Button trigger modal -->
+
+                            @else 
                                <img src="{{asset('img/check.png')}}" alt="" style="background-size: cover;
                                width: 22px; height: auto ;">
-                            @else 
-                               <img src="{{asset('img/x.png')}}" alt="" style="background-size: cover;
-                               width: 19px; height: auto ;">
                             @endif
                         </td>
 

@@ -1,3 +1,7 @@
+@php
+    $dartNumber = 1; // Initialiser le numéro de dart à 1
+@endphp
+
 @extends('layouts.app')
 @section('contents')
 
@@ -20,7 +24,7 @@
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                               Total Darts </div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,8 +41,8 @@
                   <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                           <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                              Darts payer</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                              Darts payés</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -59,7 +63,7 @@
                           </div>
                           <div class="row no-gutters align-items-center">
                               <div class="col-auto">
-                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">3</div>
+                                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1</div>
                               </div>
                               {{-- <div class="col">
                                   <div class="progress progress-sm mr-2">
@@ -87,7 +91,7 @@
                           <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                               Darts pas encore fermée
                             </div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
                       </div>
                       <div class="col-auto">
                           <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -110,7 +114,7 @@
 @forelse ( Auth::user()->offers as $offer )
 <div class="card mb-4">
     <div class="card-header" >
-        <a href="#" style="color: #257e38" class="h5"><strong>Dart 1</strong></a>
+        <a href="#" style="color: #257e38" class="h5"><strong>Dart {{ $dartNumber++ }}</strong></a>
     </div>
     <div class="card-body">
         <table class="table table-borderless">
@@ -129,8 +133,8 @@
               <tr>
                 <td>{{$offer->somme}} DH</td>
                 <td>{{$offer->période}} mois</td>
-                <td>7 mois</td>
-                <td>4 mois</td>
+                <td>3 mois</td>
+                <td>3 mois</td>
                 <td>Le {{$offer->pivot->classement}} éme</td>
                 <td style="color : white">
                     {{-- @if ($rs->status == 'terminée') --}}
@@ -151,8 +155,14 @@
     </div>
 </div>
 @empty
+<div class="card-body">
+    Vous ne participez à aucune dart pour le moment.
+</div>
+
+
     
 @endforelse
+
 
 
 

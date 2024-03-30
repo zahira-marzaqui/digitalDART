@@ -10,10 +10,11 @@ class ParticiperController extends Controller
 {
     public function participer(Request $request,$id)
     {
-        $d = Offer::find($id);
-        $d->nbr_de_participant++;
-        $classement = rand(1,$d->pé);
-        $d->users()->attach(Auth::id(), ['classement' => $classement]);
-        return redirect()->route('admin.offer.index')->with('success', 'Votre participation est enregistrée avec succès');
+        $offer = Offer::find($id);
+        $offer->nbr_de_participant++;
+        $offer->save();
+        $classement = rand(1,$offer->période);
+        $offer->users()->attach(Auth::id(), ['classement' => $classement]);
+        return redirect()->route('user.offer.index')->with('success', 'Votre participation est enregistrée avec succès');
     }
 }

@@ -58,12 +58,14 @@
     </li>
     @endif
 
+    @if(Auth::user()->type === 'admin')
     <li class="nav-item">
       <a class="nav-link" href="{{route('admin.paiement.dashboard')}}">
         <i class="fas fa-fw fa-tachometer-alt mb-0"></i>
         {{-- <i class="bi bi-cash-coin"></i> --}}
         <strong class="mb-0">Paiement</strong></a>
     </li>
+    @endif
     
     
     <!-- Divider -->

@@ -4,7 +4,7 @@
   
 @section('contents')
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="mb-0">Liste des Offres</h1>
+        <h1 class="mb-0">Liste des Offres fermée</h1>
     </div>
     <hr />
     @if(Session::has('success'))
@@ -26,22 +26,22 @@
         <tbody>
             @if($offer->count() > 0)
                 @foreach($offer as $rs)
+                   @if ($rs->nbr_de_participant == $rs->période )
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
                         <td class="align-middle">{{ $rs->somme }} DH</td>
                         <td class="align-middle">{{ $rs->Montant_Mensuel()}} DH</td>
                         <td class="align-middle">{{ $rs->période }} mois </td>
                         <td class="align-middle">le {{ $rs->date_paiment }} chaque mois </td>
-                        
-                        
-                        
                         <td class="text-center">
                             <a href="{{route('admin.paiement.index',$rs->id)}}" class="d-inline-block">
                             <img src="{{asset('img/dolarIcon.png')}}" style="background-size: cover; width: 45px; height: auto; margin-left: -50px">
                             </a> 
                         </td>
                     </tr>
+                    @endif
                 @endforeach
+                
             @else
                 <tr>
                     <td class="text-center" colspan="5">Offer not found</td>

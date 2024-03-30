@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('offers', function (Blueprint $table) {
-            //
+            $table->integer('mois_payer')->after('nbr_de_participant')->default(0);
         });
     }
 

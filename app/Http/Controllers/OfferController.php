@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Models\Offer;
 use Illuminate\Support\Facades\DB;
 
+
+
 class OfferController extends Controller
 {
     /**
@@ -142,27 +144,55 @@ class OfferController extends Controller
     }
 
 
-    public function test(string $id)
-    {
-        $offer = Offer::findOrFail($id);
-        $usersByPeriod = [];
+    // public function test(string $id)
+    // {
+    //     $offer = Offer::findOrFail($id);
+    //     $usersByPeriod = [];
 
-        for ($month = 1; $month <= $offer->période; $month++) {
-            $users = DB::table('users')
+    //     for ($month = 1; $month <= $offer->période; $month++) {
+    //         $users = DB::table('users')
+    //                     ->join('offer_user', 'users.id', '=', 'offer_user.id_user')
+    //                     ->join('offers', 'offer_user.id_offer', '=', 'offers.id')
+    //                     ->where('offers.id', $offer->id)
+    //                     ->where('offers.période', $month)
+    //                     ->select('users.*')
+    //                     ->get();
+    
+    //         $usersByPeriod[$month] = $users;
+    //     }
+    
+    //     // Now $usersByPeriod contains users grouped by each month of the offer's duration
+    //     // You can loop through $usersByPeriod to display users for each month
+        
+    //     return view('Admin.paiement.index',compact("usersByPeriod"));
+    // }
+
+    public function test(string $id)
+{
+    $offer = Offer::findOrFail($id);
+
+    // Récupérer tous les utilisateurs de l'offre une seule fois
+    $users = DB::table('users')
                 ->join('offer_user', 'users.id', '=', 'offer_user.id_user')
                 ->join('offers', 'offer_user.id_offer', '=', 'offers.id')
                 ->where('offers.id', $offer->id)
-                ->where('offers.période', $month)
-                ->select('users.*')
+                ->select('users.*') 
                 ->get();
-    
-            $usersByPeriod[$month] = $users;
-        }
-    
-        // Now $usersByPeriod contains users grouped by each month of the offer's duration
-        // You can loop through $usersByPeriod to display users for each month
-        
-        return view('Admin.paiement.index',compact("usersByPeriod"));
+                
+                
+
+    // Créer un tableau pour stocker les utilisateurs par mois
+    $usersByPeriod = [];
+
+    // Répéter l'affichage des utilisateurs pour chaque mois de l'offre
+    for ($month = 1; $month <= $offer->période; $month++) {
+        // Ajouter les mêmes utilisateurs à chaque mois
+        $usersByPeriod[$month] = $users;
     }
+
+    // Passer $usersByPeriod à la vue pour l'affichage
+    return view('Admin.paiement.index', compact("usersByPeriod"));
+}
+
 
  }
