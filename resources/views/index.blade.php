@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/cc.png" rel="icon">
+    <link href="{{asset('img/cc.jpg')}}" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -56,7 +56,7 @@
 
             <a href="index.html" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
 
-                <img src="assets/img/logo.png" alt="">
+                <img src="{{asset('img/cc.jpg')}}" alt="">
                 <h1>Digital Dart<span>.</span></h1>
             </a>
 
@@ -79,7 +79,7 @@
     <section id="hero-animated" class="hero-animated d-flex align-items-center">
         <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
             data-aos="zoom-out">
-            <img src="assets/img/cc.jpg" class="img-fluid animated" style="width: 300px">
+            <img src="{{asset('img/cc.jpg')}}" class="img-fluid animated" style="width: 300px">
             <h2>Bienvenue dans <span>Digital Dart</span></h2>
             <p>Une plateforme qui offre des fonctionnalités modernes de la pratique marocaine Dart</p>
             <div class="d-flex">
@@ -98,7 +98,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>a propos de nous</h2>
+                    <h2>à propos de nous</h2>
                     <p>Plus d'informations</p>
                 </div>
 
@@ -239,7 +239,7 @@
                     <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="service-item">
                             <div class="img">
-                                <img src="assets/img/services-3.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/services-4.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="details position-relative">
                                 <div class="icon">

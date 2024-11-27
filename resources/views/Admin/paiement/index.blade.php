@@ -208,7 +208,7 @@
             </ul>
           </nav>
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" style="color: white ; background-color: #257e38">
-            Effectuer votre paiement
+            Effectuer le virement
           </button>
   
            <!-- Modal -->
@@ -216,7 +216,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title" id="exampleModalLongTitle" style="color: black"><strong>Effectuer votre paiement</strong> </h4>
+                  <h4 class="modal-title" id="exampleModalLongTitle" style="color: black"><strong>Effectuer virement</strong> </h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -329,7 +329,7 @@
             </ul>
           </nav>
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" style="color: white ; background-color: #257e38" disabled>
-            Effectuer votre paiement
+            Effectuer le virement
           </button>
   
            <!-- Modal -->
@@ -337,7 +337,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title" id="exampleModalLongTitle" style="color: black"><strong>Effectuer votre paiement</strong> </h4>
+                  <h4 class="modal-title" id="exampleModalLongTitle" style="color: black"><strong>Effectuer virement</strong> </h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
